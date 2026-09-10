@@ -1,0 +1,36 @@
+
+<div class="background">
+<h2>Bem-vindo a sua Playlist!</h2>
+<p>Usuário: {{ nome }}</p>
+<style>
+.background{color: rgb(255, 0, 64)}
+.background_list{color:rgb(119, 183, 243) ;}
+
+    
+</style>
+</div>
+
+<div class="background_list">
+<input (keyup.enter)= "adicionarMusica($event)"
+        placeholder="Digite uma nova música">
+        <ul>
+    @for (item of musica; track $index) {
+        <li (click)="selecionada = item">{{item}}</li>
+    }
+</ul>
+@if (selecionada) 
+{
+    <p>Você está escutando: {{selecionada}}</p>
+}@else {
+    <p>Não há nada selecionado no momento</p>
+}
+
+<p>Curtidas: {{ Curtidas }}</p>
+<button (click)="incrementar()">♡</button>
+</div>
+
+
+
+
+
+
